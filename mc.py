@@ -4,6 +4,7 @@ import random
 
 from nerd_enemy import Enemy
 class Main_character:
+
     hp = 120
     bp = 50
 
@@ -16,14 +17,14 @@ class Main_character:
         self.bp = bp
         blunt_hit = random.randint(50, 70)
         blunt_hit.cost = hp - 10
-        lock_in = 50 * 2.5
-        lock_in.cost = bp - 20
         yap_session = random.randint(0, 100)
         if yap_session > 85:
             Enemy.hp = 0
         yap_session.cost = bp - 6
         math_attack = random.randint(45, 65)
         math_attack.cost = bp - 4
+        lock_in = math_attack * 2.5
+        lock_in.cost = bp - 20
 
     def Guard(self, hp):
         self.hp = hp
@@ -40,3 +41,5 @@ class Main_character:
             print("You do not have enough BP!")
         if bp < str(math_attack.cost):
             print("You do not have enough BP!")
+    if hp <= 0:
+        game_over = True
