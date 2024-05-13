@@ -29,7 +29,7 @@ class Main_character:
     def Guard(self, hp):
         self.hp = hp
         Enemy.damage_received * 0.2
-
+        
     def Using_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack):
         self.hp = hp
         self.bp = bp
