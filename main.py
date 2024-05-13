@@ -9,10 +9,11 @@ pygame.font.init()
 my_font = pygame.font.SysFont("Lobster", 20)
 game_over_font = pygame.font.SysFont("Impact", 100)
 pygame.display.set_caption("School Student RPG")
-SCREEN_HEIGHT = 500
-SCREEN_WIDTH = 700
+SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 800
 size = (SCREEN_WIDTH, SCREEN_HEIGHT)
 screen = pygame.display.set_mode((size))
+background = pygame.image.load("start_screen.png")
 r = 50
 g = 0
 b = 100
@@ -31,5 +32,6 @@ run = True
 
 while run:
     screen.fill((r, g, b))
+    screen.blit(background, (0, 0))
     pygame.display.update()
 pygame.quit()
