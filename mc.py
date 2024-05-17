@@ -3,16 +3,23 @@ import pygame
 import random
 
 from nerd_enemy import Enemy
+
+
 class Main_character:
+    max_hp = 120
+    max_bp = 50
+    action_cooldown = 0
+    action_wait_time = 90
+    hp = max_hp - Enemy.damage_received
 
-    hp = 120
-    bp = 50
-
-    def __init__(self, hp, bp):
+    def __init__(self, hp, bp, max_hp, max_bp, alive):
         self.hp = hp
         self.bp = bp
+        self.max_hp = max_hp
+        self.max_bp = max_bp
+        self.alive = alive
 
-    def skills(self, hp, bp):
+    def skills(self, hp, bp, ):
         self.hp = hp
         self.bp = bp
         blunt_hit = random.randint(50, 70)
@@ -29,7 +36,7 @@ class Main_character:
     def Guard(self, hp):
         self.hp = hp
         Enemy.damage_received * 0.2
-        
+
     def Using_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack):
         self.hp = hp
         self.bp = bp
@@ -41,5 +48,26 @@ class Main_character:
             print("You do not have enough BP!")
         if bp < str(math_attack.cost):
             print("You do not have enough BP!")
+    if hp > 0:
+        action_cooldown += 1
+
+    def Casting_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack, action_cooldown, action_wait_time):
+        while action_cooldown >= action_wait_time:
+            if keys.[pygame.K_1]:
+                Enemy.hp - blunt_hit
+                hp - 10
+            if keys.[pygame.K_2]:
+                self.lock_in
+                bp - 20
+            if keys.[pygame.K_3]:
+                yap_session
+                bp - 8
+            if keys[pygame.K_4]:
+                Enemy.hp - math_attack
+                bp - 4
+                    
+                
+            
     if hp <= 0:
         game_over = True
+        
