@@ -1,6 +1,6 @@
 import pygame
 
-from protag import Main_character
+from protag import Main_Character
 
 from nerd_enemy import Enemy
 
@@ -20,7 +20,7 @@ b = 100
 victory = "You have won the game!"
 failure = "You have lost the game."
 game_over = False
-if Main_character.hp == 0:
+if Main_Character.hp == 0:
     game_over = True
     game_over_font.render(failure, True, (255, 255, 255))
 if Enemy.hp == 0:
