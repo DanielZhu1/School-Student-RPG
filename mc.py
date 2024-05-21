@@ -4,9 +4,8 @@ import random
 
 from nerd_enemy import Enemy
 
-
 class Main_Character:
-    max_hp = 120
+    max_hp = 150
     max_bp = 50
     action_count = 1
     action_wait_time = 90
@@ -58,7 +57,7 @@ class Main_Character:
         self.Using_Skills = Using_Skills
         self.math_attack = math_attack
         self.Casting_Skills = Casting_Skills
-        math_attack = random.randint(40, 55)
+        math_attack = random.randint(45, 55)
         if Casting_Skills(math_attack):
             bp = bp - 4
             Enemy.hp - math_attack
@@ -111,6 +110,6 @@ class Main_Character:
                 Enemy.hp - math_attack
                 bp - 4
 
+
     if hp <= 0:
         game_over = True
-
