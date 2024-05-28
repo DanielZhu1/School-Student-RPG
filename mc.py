@@ -63,11 +63,11 @@ class Main_Character:
             Enemy.hp - math_attack
             action_count -= 1
 
-
     def lock_in(self, bp, lock_in, math_attack, Using_Skills, action_count, Casting_Skills):
         self.bp = bp
         self.lock_in = lock_in
         self.Casting_Skills = Casting_Skills
+        self.Using_Skills = Using_Skills
         lock_in = math_attack * 2.5
         if Casting_Skills(lock_in):
             bp = bp - 20
@@ -91,6 +91,7 @@ class Main_Character:
             print("You do not have enough BP!")
         if bp < str(math_attack.cost):
             print("You do not have enough BP!")
+        return self.Using_Skills()
 
     if hp > 0:
         action_count += 1
@@ -109,7 +110,7 @@ class Main_Character:
             if keys[pygame.K_4]:
                 Enemy.hp - math_attack
                 bp - 4
-
+        return self.Casting_Skills()
 
     if hp <= 0:
         game_over = True
