@@ -13,9 +13,10 @@ class Enemy:
         self.erm_actually = erm_actually
         self.damage_received = damage_received
         alive = True
-    def attacks(self, Main_Character, erm_actually, damage_received):
+    def attacks(self, Main_Character, erm_actually, damage_received, damage_dealt):
         self.erm_actually = erm_actually
         self.damage_received = damage_received
+        self.damage_dealt = damage_dealt
         erm_actually = random.randint(20, 25)
         damage_dealt = Main_Character.hp - int(erm_actually)
         if Enemy.hp < 80:
@@ -23,3 +24,4 @@ class Enemy:
             erm_actually * 2.5
     if hp <= 0:
         game_over = True
+        
