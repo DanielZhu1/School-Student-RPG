@@ -17,6 +17,7 @@ background = pygame.image.load("start_screen.png")
 r = 50
 g = 0
 b = 100
+
 victory = "You have won the game!"
 failure = "You have lost the game."
 game_over = False
@@ -35,5 +36,3 @@ while run:
     screen.blit(background, (0, 0))
     pygame.display.update()
 pygame.quit()
-
-
