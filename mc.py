@@ -4,14 +4,18 @@ import random
 
 from nerd_enemy import Enemy
 
+
 class Main_Character:
     max_hp = 150
     max_bp = 50
     action_count = 1
     action_wait_time = 90
+    if action_count == 0:
+        Enemy.action_count += 1
     hp = max_hp - Enemy.damage_received
 
-    def __init__(self, hp, bp, max_hp, max_bp, alive, lock_in, blunt_hit, yap_session, math_attack, guard, Using_Skills, action_count, Casting_Skills):
+    def __init__(self, hp, bp, max_hp, max_bp, alive, lock_in, blunt_hit, yap_session, math_attack, guard, Using_Skills,
+                 action_count, Casting_Skills):
         self.hp = hp
         self.bp = bp
         self.max_hp = max_hp
@@ -51,7 +55,7 @@ class Main_Character:
             if yap_session <= 80:
                 Enemy.alive = False
 
-    def math_attack(self, bp, max_bp, Using_Skills, math_attack, action_count,Casting_Skills):
+    def math_attack(self, bp, max_bp, Using_Skills, math_attack, action_count, Casting_Skills):
         self.bp = bp
         self.max_bp = max_bp
         self.Using_Skills = Using_Skills
@@ -74,7 +78,6 @@ class Main_Character:
             math_attack * 2.5
             action_count -= 1
 
-
     def guard(self, hp, action_count):
         self.hp = hp
         Enemy.damage_received * 0.2
@@ -95,6 +98,7 @@ class Main_Character:
 
     if hp > 0:
         action_count += 1
+
     def Casting_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack, action_count, action_wait_time):
         while action_count >= action_wait_time:
             keys = pygame.key.get_pressed()
@@ -111,6 +115,9 @@ class Main_Character:
                 Enemy.hp - math_attack
                 bp - 4
         return self.Casting_Skills()
+
+    if hp <= 0:
+        game_over = True
 
     if hp <= 0:
         game_over = True
