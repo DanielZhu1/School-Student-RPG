@@ -1,9 +1,6 @@
-import pygame
-
 import random
 
 from protag import Main_Character
-
 
 class Enemy:
     hp = 320
@@ -28,7 +25,7 @@ class Enemy:
         damage_dealt = Main_Character.hp - int(erm_actually)
         if Enemy.hp < 80:
             print("Time to lock in!")
-            erm_actually * 2.5
+            strong_attack = erm_actually * 2.5
 
     if hp <= 0:
         game_over = True
