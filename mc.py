@@ -38,8 +38,8 @@ class Main_Character:
         self.Casting_Skills = Casting_Skills
         blunt_hit = random.randint(45, 60)
         if Casting_Skills(blunt_hit):
-            hp = hp - 10
-            Enemy.hp - blunt_hit
+            hp -= 10
+            Enemy.hp -= blunt_hit
             action_count -= 1
 
     def yap_session(self, bp, max_bp, Using_Skills, yap_session, action_count, Casting_Skills):
@@ -50,7 +50,7 @@ class Main_Character:
         self.Casting_Skills = Casting_Skills
         yap_session = random.randint(0, 100)
         if Casting_Skills(yap_session):
-            bp = bp - 8
+            bp -= 8
             action_count -= 1
             if yap_session <= 80:
                 Enemy.alive = False
@@ -63,8 +63,8 @@ class Main_Character:
         self.Casting_Skills = Casting_Skills
         math_attack = random.randint(45, 55)
         if Casting_Skills(math_attack):
-            bp = bp - 4
-            Enemy.hp - math_attack
+            bp -= 4
+            Enemy.hp -= math_attack
             action_count -= 1
 
     def lock_in(self, bp, lock_in, math_attack, Using_Skills, action_count, Casting_Skills):
@@ -74,13 +74,13 @@ class Main_Character:
         self.Using_Skills = Using_Skills
         lock_in = math_attack * 2.5
         if Casting_Skills(lock_in):
-            bp = bp - 20
+            bp -= 20
             math_attack * 2.5
             action_count -= 1
 
     def guard(self, hp, action_count):
         self.hp = hp
-        Enemy.damage_received * 0.2
+        guard = Enemy.damage_received * 0.2
         action_count -= 1
 
     def Using_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack):
@@ -103,17 +103,17 @@ class Main_Character:
         while action_count >= action_wait_time:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_1]:
-                Enemy.hp - blunt_hit
-                hp - 10
+                Enemy.hp -= blunt_hit
+                hp -= 10
             if keys[pygame.K_2]:
                 lock_in = True
-                bp - 20
+                bp -= 20
             if keys[pygame.K_3]:
-                yap_session
-                bp - 8
+                yap_session = True
+                bp -= 8
             if keys[pygame.K_4]:
-                Enemy.hp - math_attack
-                bp - 4
+                Enemy.hp -= math_attack
+                bp -= 4
         return self.Casting_Skills()
 
     if hp <= 0:
