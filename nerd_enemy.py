@@ -29,3 +29,4 @@ class Enemy:
 
     if hp <= 0:
         game_over = True
+
