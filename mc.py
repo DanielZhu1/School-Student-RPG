@@ -18,6 +18,7 @@ class Main_Character:
                  action_count, Casting_Skills):
         self.hp = hp
         self.bp = bp
+        self.image = pygame.image.load("protagonist.png")
         self.max_hp = max_hp
         self.max_bp = max_bp
         self.alive = alive
@@ -118,7 +119,3 @@ class Main_Character:
 
     if hp <= 0:
         game_over = True
-
-    if hp <= 0:
-        game_over = True
-
