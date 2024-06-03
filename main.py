@@ -14,6 +14,7 @@ SCREEN_WIDTH = 800
 size = (SCREEN_WIDTH, SCREEN_HEIGHT)
 screen = pygame.display.set_mode((size))
 background = pygame.image.load("start_screen.png")
+
 r = 50
 g = 0
 b = 100
