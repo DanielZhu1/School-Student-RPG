@@ -1,3 +1,5 @@
+import pygame
+
 import random
 
 from protag import Main_Character
@@ -12,6 +14,7 @@ class Enemy:
 
     def __init__(self, hp, alive, erm_actually, damage_received):
         self.hp = hp
+        self.image = pygame.image.load("nerd_enemy.png")
         self.alive = alive
         self.erm_actually = erm_actually
         self.damage_received = damage_received
@@ -29,4 +32,4 @@ class Enemy:
 
     if hp <= 0:
         game_over = True
-
+        
