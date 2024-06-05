@@ -14,6 +14,7 @@ SCREEN_WIDTH = 800
 size = (SCREEN_WIDTH, SCREEN_HEIGHT)
 screen = pygame.display.set_mode((size))
 background = pygame.image.load("start_screen.png")
+# Sets up the screen and background
 
 r = 50
 g = 0
@@ -28,6 +29,8 @@ if Main_Character.hp == 0:
 if Enemy.hp == 0:
     game_over = True
     game_over_font.render(victory, True, (255, 255, 255))
+# Sets up the win and loss conditions
+
 intro = "Welcome to School Student RPG"
 display_intro = my_font.render(intro, True, (255, 255, 255))
 run = True
@@ -37,4 +40,4 @@ while run:
     screen.blit(background, (0, 0))
     pygame.display.update()
 pygame.quit()
-
+# Ends the program
