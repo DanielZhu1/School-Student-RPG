@@ -13,7 +13,8 @@ class Main_Character:
     if action_count == 0:
         Enemy.action_count += 1
     hp = max_hp - Enemy.damage_received
-
+# Sets up attributes and how the turn system will work 
+    
     def __init__(self, hp, bp, max_hp, max_bp, alive, lock_in, blunt_hit, yap_session, math_attack, guard, Using_Skills,
                  action_count, Casting_Skills):
         self.hp = hp
@@ -30,7 +31,8 @@ class Main_Character:
         self.Using_Skills = Using_Skills
         self.action_count = action_count
         self.Casting_Skills = Casting_Skills
-
+# Initializes everything
+    
     def blunt_hit(self, hp, max_hp, Using_Skills, blunt_hit, action_count, Casting_Skills):
         self.hp = hp
         self.max_hp = max_hp
@@ -42,7 +44,7 @@ class Main_Character:
             hp -= 10
             Enemy.hp -= blunt_hit
             action_count -= 1
-
+# Idea behind this skill is an attack slightly more powerful than the Brain power attack except it uses Hp, so it has higher risk but can be used without Bp.
     def yap_session(self, bp, max_bp, Using_Skills, yap_session, action_count, Casting_Skills):
         self.bp = bp
         self.max_bp = max_bp
@@ -55,7 +57,8 @@ class Main_Character:
             action_count -= 1
             if yap_session <= 80:
                 Enemy.alive = False
-
+# Idea behind this skill is a random attack in hopes of instantly defeating the enemy out of desperation
+    
     def math_attack(self, bp, max_bp, Using_Skills, math_attack, action_count, Casting_Skills):
         self.bp = bp
         self.max_bp = max_bp
@@ -67,7 +70,8 @@ class Main_Character:
             bp -= 4
             Enemy.hp -= math_attack
             action_count -= 1
-
+# Idea behind this skill is very simple, inexpensive attack that uses small amounts of Bp.
+    
     def lock_in(self, bp, lock_in, math_attack, Using_Skills, action_count, Casting_Skills):
         self.bp = bp
         self.lock_in = lock_in
@@ -78,12 +82,14 @@ class Main_Character:
             bp -= 20
             math_attack * 2.5
             action_count -= 1
-
+# Idea behind this skill is to charge up the next skill but at the cost of a large amount of Bp so you can continuously strengthen but you will also run out of Bp faster.
+    
     def guard(self, hp, action_count):
         self.hp = hp
         guard = Enemy.damage_received * 0.2
         action_count -= 1
-
+# Idea behind this is to guard against the enemy's locked in attack
+    
     def Using_Skills(self, hp, bp, blunt_hit, lock_in, yap_session, math_attack):
         self.hp = hp
         self.bp = bp
@@ -96,7 +102,8 @@ class Main_Character:
         if bp < str(math_attack.cost):
             print("You do not have enough BP!")
         return self.Using_Skills()
-
+# Prevents skill use with inadequate attributes 
+    
     if hp > 0:
         action_count += 1
 
@@ -116,6 +123,7 @@ class Main_Character:
                 Enemy.hp -= math_attack
                 bp -= 4
         return self.Casting_Skills()
-
+# Adds key binds to using skills 
+    
     if hp <= 0:
         game_over = True
