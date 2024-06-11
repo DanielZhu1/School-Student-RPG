@@ -7,7 +7,7 @@ from nerd_enemy import Enemy
 pygame.init()
 pygame.font.init()
 my_font = pygame.font.SysFont("Arial", 30)
-game_over_font = pygame.font.SysFont("Impact", 50)
+game_over_font = pygame.font.SysFont("Impact", 65)
 pygame.display.set_caption("School Student RPG")
 SCREEN_HEIGHT = 800
 SCREEN_WIDTH = 800
@@ -49,11 +49,11 @@ while run:
 
     if protag.hp <= 0:
         game_over = True
-        display_lose = game_over_font.render(failure, True, (255, 255, 255))
+        display_lose = game_over_font.render(failure, True, (0, 0, 255))
         win = False
     if enemy.hp <= 0:
         game_over = True
-        display_win = game_over_font.render(victory, True, (255, 255, 255))
+        display_win = game_over_font.render(victory, True, (139, 0, 0))
         win = True
 
     for event in pygame.event.get():  # User did something
@@ -61,13 +61,13 @@ while run:
             run = False
         if event.type == pygame.MOUSEBUTTONUP:
             if start and my_turn:
-                enemy.hp -= 10
+                enemy.hp -= random.randint(10, 13)
                 display_enemy_hp = my_font.render("ENEMY HP: " + str(enemy.hp), True, (255, 255, 25))
                 my_turn = False
                 enemy_turn = True
             if start and enemy_turn:
                 if count == 1:
-                    enemy_attack = random.randint(10,15)
+                    enemy_attack = random.randint(10, 15)
                     display_enemy_attack = my_font.render(enemy_attack_tutorial + str(enemy_attack) + " damage!", True, (255, 25, 25))
                     count += 1
                 elif count == 2:
@@ -100,9 +100,9 @@ while run:
     elif game_over:
         screen.fill((r, g, b))
         if win:
-            screen.blit(display_win, (180, 400))
+            screen.blit(display_win, (100, 400))
         elif not(win):
-            screen.blit(display_lose, (180, 400))
+            screen.blit(display_lose, (100, 400))
 
         # screen.fill((r, g, b))
 
