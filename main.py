@@ -61,7 +61,7 @@ while run:
             run = False
         if event.type == pygame.MOUSEBUTTONUP:
             if start and my_turn:
-                enemy.hp -= random.randint(10, 13)
+                enemy.hp -= random.randint(10, 14)
                 display_enemy_hp = my_font.render("ENEMY HP: " + str(enemy.hp), True, (255, 255, 25))
                 my_turn = False
                 enemy_turn = True
